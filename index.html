@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="nonogram">
+	<head>
+		<meta charset="utf-8">
+		<title>Nonogram</title>
+		<link rel="stylesheet" href="css/nonogram.css">
+	</head>
+	<body>
+		<div id="nonogram" ng-controller="BoardCtrl" ng-cloak>
+			<div id="colNums">
+				<div ng-repeat="(index, col) in colNums" ng-class="getColNumsClass(index)">
+					<div ng-repeat="num in col">{{num.value}}</div>
+				</div>
+			</div>
+			<div id="board" ng-mouseleave="boardLeave()" disable-context-menu>
+				<div ng-repeat="(rowIndex, row) in grid">
+					<div ng-repeat="(colIndex, cell) in row" ng-mousedown="handleClick(cell, colIndex, rowIndex, $event)" ng-mouseenter="handleDrag(cell, colIndex, rowIndex)" ng-mouseup="endDrawMode()" ng-click="preventDefault($event)" ng-class="getCellClass(cell)"></div>
+				</div>
+			</div>
+			<div id="rowNums">
+				<div ng-repeat="(index, row) in rowNums">
+					<div ng-repeat="num in row" ng-class="getRowNumsClass(num, index)">{{num.value}}</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/nonogram.js"></script>
+	</body>
+</html>

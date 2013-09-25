@@ -1,0 +1,103 @@
+body{
+	font-family: Arial, sans-serif;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+#nonogram{
+	display: inline-block;
+	overflow: hidden;
+}
+#colNums{
+	float: right;
+	margin-right: 2px;
+	overflow: hidden;
+}
+#colNums > div{
+	display: inline-block;
+	vertical-align: bottom;
+	width: 50px;
+}
+#colNums > div > div{
+	border: 1px solid #000;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	width: 50px;
+}
+#rowNums{
+	float: right;
+	margin-top: 2px;
+}
+#rowNums > div{
+	overflow: hidden;
+	text-align: right;
+}
+#rowNums > div > div{
+	border: 1px solid #000;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+#colNums > .highlight, #rowNums > div > .highlight{
+	background: #D5EEFF;
+}
+#colNums > .complete, #rowNums > div > .complete{
+	color: #386FA9;
+	font-weight: bold;
+}
+#board{
+	border: 2px solid #000;
+	clear: both;
+	float: right;
+}
+#board > div > div{
+	border: 1px solid #000;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	height: 50px;
+	outline: 2px solid transparent;
+	position: relative;
+	-moz-transition: background 250ms, box-shadow 250ms;
+	-webkit-transition: background 250ms, box-shadow 250ms;
+	transition: background 250ms, box-shadow 250ms;
+	width: 50px;
+}
+#board > div > div:hover{
+	outline: 2px solid #09f;
+	z-index: 2;
+}
+#board > div > div.on{
+	background: #000;
+	border: 1px solid #fff;
+	color: #fff;
+}
+#board > div > div:after{
+	content: 'x';
+	line-height: 50px;
+	opacity: 0;
+	-moz-transition: opacity 250ms;
+	-webkit-transition: opacity 250ms;
+	transition: opacity 250ms;
+}
+#board > div > div.off{
+}
+#board > div > div.off:after{
+	opacity: 1;
+}
+
+[ng-cloak]{
+	display: none !important;
+}
